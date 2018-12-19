@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1.获取客户端时间（很少使用）
+	//var d1 = new Date();
+	//console.log(d1);
+	//alert(d1.getTime());
+	//alert(d1);
+	
+	//2.创建时间对象，指定时间。这个指定的时间通常来自服务器
+	var d2 = new Date("2018/06/06 08:08:08")
+	//alert(d2);
+	//3.获取和设置时间戳（距1970年1月1日的毫秒数）
+	//alert(d2.getTime());
+	//d2.setTime(1000);
+	//alert(d2);
+	//4.获取单独的年月日时分秒
+	console.log(d2.getFullYear());
+	console.log(d2.getMonth());//月份从0开始
+	console.log(d2.getDate());
+	console.log(d2.getDay());
+	console.log(d2.getHours());
+	console.log(d2.getMinutes());
+	console.log(d2.getSeconds());
+	//5.从完整日期+时间中获取年月日 获取时分秒
+	alert(d2.toLocaleTimeString());
+	alert(d2.toLocaleDateString());
+</script>
+</head>
+<body>
+
+</body>
+</html>

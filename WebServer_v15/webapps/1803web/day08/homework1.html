@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>计算器</title>
+<script type="text/javascript">
+	function cal(flag){
+		//得到两个文本输入框
+	var input1 = document.getElementById("input1");
+	var input2 = document.getElementById("input2");
+	//得到显示结果的div
+	var resultDiv = document.getElementById("resultdiv");
+	/*把用户输入的内容强制转为数字*/
+	var n1 =parseFloat(input1.value);
+	var n2 =parseFloat(input2.value);
+	//两个数进行运算
+	var resultNumber = 0;
+	switch(flag){
+		case 1 :
+			 resultNumber = n1 + n2;
+			break;
+		case 2 :
+			 resultNumber = n1 - n2;
+			break;
+		case 3 :
+			 resultNumber = n1 * n2;
+			break;
+		case 4 :
+			 resultNumber = n1 / n2;
+			break;
+	}	
+	//把结果写入到div中
+	resultDiv.innerText = resultNumber;
+	}
+</script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+	<h1>计算器</h1> 
+	<input type="text" id="input1">
+	<input type="text" id="input2">
+	<hr>
+	<input type="button" value="加" onclick="cal(1)">
+	<input type="button" value="减" onclick="cal(2)">
+	<input type="button" value="乘" onclick="cal(3)">
+	<input type="button" value="除" onclick="cal(4)">
+	<div id="resultdiv">结果</div>
+</body>
+</html>

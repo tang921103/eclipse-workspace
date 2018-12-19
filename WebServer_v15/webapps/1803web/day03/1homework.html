@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  隐藏id  用户名，密码，确认密码，性别，昵称，爱好，生日，头像，城市，自我介绍，验证码，提交按钮，重置按钮-->
+		<form action="">
+			<table border="1"   align="center" cellspacing="0">
+				<caption><h1 >注册表单</h1></caption>
+					<tr>
+						<td>用户名：</td>
+						<td><input type="text" name="username">
+								<input type="hidden" name="id" value="111">
+						</td>
+					</tr>
+					<tr>
+						<td>密码：</td>
+						<td><input type="password" name="password1">
+						</td>
+					</tr>
+					<tr>
+						<td>确认密码：</td>
+						<td><input type="password" name="password2">
+						</td>
+					</tr>
+					<tr>
+						<td>昵称：</td>
+						<td><input type="text" name="nick">
+						</td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td><input type="radio" name="gender" id="nan"><label for="nan">男</label>
+								<input type="radio" name="gender" id="nv"><label for="nv">女</label>
+						</td>
+					</tr>
+					<tr>
+						<td>爱好：</td>
+						<td><input type="checkbox" name="hobby" id="lq"><label for="lq">篮球</label>
+								<input type="checkbox" name="hobby" id="wz"><label for=az>王者</label>
+						</td>
+					</tr>
+					<tr>
+						<td>生日：</td>
+						<td><input type="date" name="birthday">
+						</td>
+					</tr>
+					<tr>
+						<td>头像：</td>
+						<td><input type="file" name="headpic">
+						</td>
+					</tr>
+					<tr>
+						<td>城市：</td>
+						<td>
+							<select name="city">
+								<option value="xz">请选择</option>
+								<option value="bj">北京</option>
+								<option value="sh">上海</option>
+								<option value="gz">广州</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>自我介绍：</td>
+						<td>
+							<textarea rows="3" cols="30" name="introduction">自我介绍.......</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>验证码：</td>
+						<td><img src="a.jpg" width="80" height="20">
+						</td>
+					</tr>
+					<tr align="center">
+						<td colspan="2">
+							<input type="submit" value="注册">
+							<input type="reset" value="重置">
+						</td>
+					</tr>
+			</table>
+		</form>
+</body>
+</html>

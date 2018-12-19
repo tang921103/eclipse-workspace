@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">        
+<title>Insert title here</title>
+<script type="text/javascript">
+	function addfn(){
+		/* 先得到全选标签 */
+		var allIpt = document.getElementById("all");
+		/* 得到所有商品input */
+		var items = document.getElementsByName("item");
+		/* 遍历每一个商品 */
+		for(var i = 0;i<items.length;i++){
+			var item = items[i];
+			item.checked = allIpt.checked;
+		}
+		//计算金额
+		calfn();
+	}
+	function calfn(){
+		//得到所有商品的input
+		var items = document.getElementsByName("item");
+		var totalMoney = 0;
+		//遍历,把选中的金额相加
+		for(var i= 0;i<items.length;i++){
+			var item = items[i];
+			//判断是否选中
+			if(item.checked){//选中
+				//得到选中的金额
+				var money = parseFloat(item.value);
+			totalMoney += money;
+			}
+		}
+		//把总金额显示到p标签
+		var p = document.getElementsByTagName("p")[0];
+		p.innerText = "总价："+totalMoney;
+	}
+</script>
+</head>
+<body>
+		<h1>购物车订单练习</h1>
+		<input onclick="calfn()" type="checkbox" name="item" value="5000">华为手机5000元<br>
+		<input onclick="calfn()" type="checkbox" name="item" value="50">手机壳50元<br>
+		<input onclick="calfn()" type="checkbox" name="item" value="5">手机链5元<br>
+		<input onclick="calfn()" type="checkbox" name="item" value="10">手机膜10元<br>
+		<input onclick="calfn()" type="checkbox" name="item" value="100">联通手机卡100元<br>
+		<input  type="checkbox" id="all" onclick="addfn()">全选
+		<p>总价：</p>
+</body>
+</html>

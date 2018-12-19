@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		font-family: 微软雅黑, 文泉驿正黑, 黑体, serif;
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+    background-color: rgb(245, 245, 245);
+    margin: 0px;
+	}
+	#service_div{
+		width:1000px;
+		margin:20px auto;
+		text-align:center;/*为了让内部四个小的div居中*/
+		overflow:hidden;/*解决高度不识别的bug*/
+		
+	}
+	#service_div div{
+		float:left;
+		width:250px;
+	}
+	#service_div>div>a{
+		display:block;/*把超链接改成块级元素，独占一行*/
+		text-decoration:none;
+		color: rgb(102, 102, 102);
+	}
+</style>
+</head>
+<body>
+	<article>
+		<div id="service_div"> 
+			<div>
+				<img src="../images/footer/icon1.png">
+				<a href="#">品质保障</a>
+			</div>
+			<div>
+				<img src="../images/footer/icon2.png">
+				<a href="#">私人订制</a>
+			</div>
+			<div>
+				<img src="../images/footer/icon3.png">
+				<a href="#">学院特供</a>
+			</div>
+			<div>
+				<img src="../images/footer/icon4.png">
+				<a href="#">专属特权</a>
+			</div>
+		</div>
+	</article>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>我的网页</title>
+<script type="text/javascript">
+	onload = function(){
+		var imgs = document.getElementsByTagName("img");
+		for(var i =0;i<imgs.length;i++){
+			imgs[i].style.left = i*400+"px";
+		}
+	}
+	function move(){
+		var inter1 = setInterval(function(){
+			var imgs = document.getElementsByTagName("img");
+			for(var i = 0;i<imgs.length;i++){
+				var x = parseInt(imgs[i].style.left);
+				x -= 2;
+				if(x<=-400){
+					x = 800;
+					clearInterval(inter1);
+				}
+				imgs[i].style.left = x+"px";
+			}
+		},1000/150);
+	}
+	var inter2;
+	function start(){
+		inter2 = setInterval(function(){
+			move();
+		},3000);
+	}
+	function stop(){
+		clearInterval(inter2);
+	}
+	onfocus = function(){
+		start();
+	}
+	onblur = function(){
+		stop();
+	}
+	start();
+</script>
+<style type="text/css">
+div,img{
+	width:400px;
+	height:250px;
+}
+img{
+	position:absolute;
+}
+div{
+	overflow:hidden;
+	position:relative;
+	left:0px;
+	margin:0 auto;
+}
+
+</style>
+</head>
+<body>
+	<div onclick="move()" onmouseover="stop()" onmouseout="start()">
+		<img src="../1803web/imgs/a.jpg">
+		<img src="../1803web/imgs/b.jpg">
+		<img src="../1803web/imgs/e.jpg">
+	</div>
+</body>
+</html>

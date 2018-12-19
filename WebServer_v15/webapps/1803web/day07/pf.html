@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function getpf(){
+		var text = document.getElementById("name");
+		var number=text.value;		
+		if(isNaN(number)){
+			alert("输入有误")
+		}else{
+			var input = document.getElementById("result");
+			input.innerText=number*number;
+		}
+	}
+</script>
+<style type="text/css">
+#result{
+	width:70px;
+	height:20px;
+	border:1px solid red;
+}
+</style>
+</head>
+<body>
+	<input type="text" id="name" value="平方">
+	<input type="button" value="求取平方"  onclick="getpf()">
+	<div id="result"></div>
+</body>
+</html>

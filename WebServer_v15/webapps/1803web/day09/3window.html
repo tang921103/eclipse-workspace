@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* //给window添加点击事件
+	window.onclick = function(){
+		alert("点击了");
+	}
+	//添加加载完成事件
+	onload = function(){
+		alert("加载完成");
+		var big = document.getElementById("big");
+		big.innerHTML = "<div id='small'></div>"
+	} */
+	//添加获取焦点的事件
+	/* onfocus = function(){
+		console.log("焦点来了");
+	}
+	//添加失去焦点的事件
+	onblur = function(){
+		console.log("失去焦点");
+	} */
+	/* onclick = function(){
+		location.href ="http://www.tmooc.cn";
+	} */
+	
+	
+</script>
+<style type="text/css">
+	#big{
+		width:200px;
+		height:200px;
+		background-color:yellow;
+	}
+	#small{
+		width:50px;
+		height:50px;
+		background-color:red;
+	}
+</style>
+</head>
+<body>
+	<input type="text">
+	<input type="button" value="刷新" onclick="location.reload()">
+	<div id="big">
+		
+	</div>
+</body>
+</html>

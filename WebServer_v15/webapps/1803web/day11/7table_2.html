@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function fn1(){
+			var row = 3;//行
+			var col = 2;//列
+			createTable(row,col);
+		}
+		function createTable(row,col){
+			var table = document.createElement("table");//创建表格
+			for(var i = 0;i<row;i++){
+				var tr = document.createElement("tr");//创建行
+				for(var j = 0;j<col;j++){
+					var td = document.createElement("td");//创建列
+					td.style.border = "1px solid green";
+					td.innerText = (i+1)+"行"+(j+1)+"列";
+					tr.appendChild(td);//把td放到tr里面
+				}
+				table.appendChild(tr);
+				table.style.border = "2px solid red";
+			}
+			document.body.appendChild(table);
+		}
+		function fn2(){
+			var row = 5;//行
+			var col = 6;//列
+			createTable(row,col);
+		}
+		function fn3(){
+			//获取行数和列数
+			var rowinput = document.getElementById("rowid");
+			var colinput = document.getElementById("colid");
+			var row = parseInt(rowinput.value);
+			var col = parseInt(colinput.value);
+			createTable(row,col);
+		}
+		
+	</script>
+</head>
+<body>
+	<input type="button" value="创建3行2列表格" onclick="fn1()">
+	<input type="button" value="创建5行6列表格" onclick="fn2()">
+	<input type="text" id="rowid">
+	<input type="text" id="colid">
+	<input type="button" value="创建表格" onclick="fn3()">
+</body>
+</html>

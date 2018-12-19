@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<servlets>
+		<!-- 
+			每个servlet 标签是一个请求与Servlet的映射
+			url：对应的请求
+			calssName：该请求对应的Servlet名字
+		
+		 -->
+		<servlet url="/myweb/reg" className="com.tedu.webserver.servlet.RegServlet"></servlet>
+		<servlet url="/myweb/login" className="com.tedu.webserver.servlet.LoginServlet"></servlet>
+	</servlets>
+</config>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1.创建数组的两种方式,数组中可以添加任意类型数据
+	var arr1 = [ "小名", 18, true ];
+	//创建一个空的数组
+	var arr2 = new Array();
+	//2.数组中添加数据
+	arr2.push("小花");
+	arr2.push(25);
+	arr2.push(false);
+	//alert(arr1);
+	//alert(arr2);
+	//3.数组的长度可变
+	//arr1.length=1;
+	//alert(arr1);
+	//4.数组中取数据
+	/* for(var i = 0;i<arr2.length;i++){
+	alert(arr2[i]);
+	} */
+	//5.数组反转
+	//var arr3 = [1,2,3,4];
+	//arr3.reverse();
+	//alert(arr3);
+	//6.数组排序  sort默认排序规则：按照每一个元素的unicode编码进行排序
+	//比完第一个比第二个，相当于是以字符串进行排序的
+	//自定义排序
+	//如果升序returna-b ,降序returnb-a	
+	var arr4 = [1,4,12,45,32,6,22];
+	//arr4.sort(arr4);
+	//alert(arr4);
+	/* function sortFunc(a,b){
+		return a-b;
+	}
+	alert(arr4.sort(sortFunc)); */
+	//使用匿名排序函数进行排序
+	arr4.sort(function(a,b){
+		return a-b;
+	});
+	alert(arr4);
+	
+	function add() {
+		var myinput = document.getElementById("myinput");
+		var newsul = document.getElementById("news");
+		var news = myinput.value;
+		var arr = news.split("，");
+		for (var i = 0; i < arr.length; i++) {
+			newsul.innerHTML += "<li>"+ arr[i] + "</li>";
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="myinput">
+	<input type="button" value="添加新闻" onclick="add()">
+	<ul id="news">
+
+	</ul>
+</body>
+</html>

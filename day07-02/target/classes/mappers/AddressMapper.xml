@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+		"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+		<!-- namespace表示命名空间，值唯一 -->
+		<!-- 实现类没有，mybatis框架会生成接口的实现类 -->
+	<mapper namespace="cn.tedu.dao.AddressDao">
+			<!--插入地址信息  -->
+		  <!-- Integer insertAddress(Address address) -->
+		  <!-- id必须和方法名一致 -->
+		   <insert id="insertAddress" parameterType="cn.tedu.bean.Address">
+		  		insert into t_address(province,city,area,user_address) values(
+		  		#{province},#{city},#{area},#{userAddress}
+		  		)	  			  		
+		  </insert> 
+		  <update id="updateAddress" parameterType="cn.tedu.bean.Address">
+		  update t_address set province=#{province},city=#{city},area=#{area},user_address=#{userAddress}
+		  where id=#{id}
+		  </update>
+		  <delete id="deleteAddress">
+		  	delete from t_address where id=#{id}
+		  </delete>
+		  <!--根據id查詢-->
+		  <!-- 处理字段名和属性名不相同的第二种解决方案
+		  			1.把字段和属性之间做一个映射
+		  			2.resuletMap表示实现映射的节点
+		  			3.type表示映射的java类的类型
+		  			4.id表示节点的值，唯一
+		   --> 
+		   <!-- 1.id节点表示用来映射主键字段
+		   		 2.result节点表示映射除了主键之外的其他字段
+		    -->
+		  <resultMap type="cn.tedu.bean.Address" id="resultAddress">
+		  	<id column="id" property="id"></id>
+		  <result column="province" property="province"></result>
+		  <result column="city" property="city"></result>
+		  <result column="area" property="area"></result>
+		  <result column="user_address" property="userAddress"></result>
+		  </resultMap>
+		  <select id="selectById" resultMap="resultAddress">
+		  	select * from t_address where id=#{id}
+		  </select>
+		  <!-- <select id="selectById" resultType="cn.tedu.bean.Address">
+		  select id,province,city,area,user_address userAddress from t_address where id=#{id} 
+		  </select>-->
+		  <select id="selectAll" resultMap="resultAddress">
+		  select * from t_address
+		  </select>
+	</mapper>
+	
+	
+	
+	
+	
+	
+	
+	
+	

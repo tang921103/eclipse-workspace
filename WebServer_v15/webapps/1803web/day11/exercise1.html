@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function count(){
+	var inputs = document.getElementsByName("chioce");
+	var p = document.getElementsByTagName("p")[0];
+	var total = 0;
+	for(var i = 0;i<inputs.length;i++){
+		if(inputs[i].checked){
+			total += parseFloat(inputs[i].value);
+		}
+	}
+	p.innerText = "总价："+total;
+}
+function addAll(){
+	var inputs = document.getElementsByName("chioce");
+	var all = document.getElementById("all");
+	for(var i = 0;i<inputs.length;i++){
+		inputs[i].checked = all.checked;
+	}
+	count();
+}
+</script>
+</head>
+<body>
+	<h1>购物车请单</h1>
+	<input type="checkbox" name="chioce" id="input1" onclick="count()" value="500"><label for="input1" >衣服500元</label><br>
+	<input type="checkbox" name="chioce" id="input2" onclick="count()" value="300"><label for="input2"  >裤子300元</label><br>
+	<input type="checkbox" name="chioce" id="input3" onclick="count()" value="250"><label for="input3"  >鞋子250元</label><br>
+	<input type="checkbox" name="chioce" id="input4" onclick="count()" value="899"><label for="input4"  >耳机899元</label><br>
+	<input type="checkbox" name="chioce" id="input5" onclick="count()" value="50"><label for="input5"  >袜子50元</label><br>
+	<input type="checkbox" id="all" onclick="addAll()">全选<br>
+	<p>总价：</p>
+</body>
+</html>

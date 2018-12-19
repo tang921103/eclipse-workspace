@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var count = 0;
+	setInterval(function() {
+		count++;
+		//console.log(count%4);
+		var imgs = document.getElementsByTagName("img");
+		for(var i =0;i<imgs.length;i++){
+			if(i==count%4){
+				imgs[i].style.display = "block";
+			}else{
+				imgs[i].style.display = "none";
+			}
+		}
+	}, 1500);
+</script>
+<style type="text/css">
+div, img {
+	width: 500px;
+	height: 300px;
+}
+
+div {
+	overflow: hidden;
+}
+</style>
+</head>
+<body>
+	<div>
+		<img src="a.jpg"> <img src="b.jpg"> <img src="e.jpg">
+		<img src="o.jpg">
+	</div>
+
+</body>
+</html>

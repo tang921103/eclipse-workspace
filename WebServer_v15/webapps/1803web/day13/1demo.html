@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	//给按钮添加点击事件，写在页面加载完成中
+	$(function(){
+		//得到所有的分组li
+		$(".group").click(function(){
+			//this为触发事件的元素，是js对象
+			//判断点击的是隐藏还是显示的
+			if($(this).children().css("display")=="none"){//代表隐藏的ul
+				//关闭所有
+				$(".group>ul").css("display","none");
+				//让元素显示
+				$(this).children().css("display","block");
+			}else{//代表显示的ul
+				//让元素隐藏
+				$(this).children().css("display","none");
+			}
+			
+		});
+	});
+
+</script>
+<style>
+/*隐藏二级ul内容  */
+	.group ul{
+		display:none;
+	}
+
+</style>
+</head>
+<body>
+	<ul>
+		<li class="group">美女好友
+			<ul>
+				<li>杨幂</li>
+				<li>刘亦菲</li>
+				<li>汤唯</li>
+			</ul>
+		</li>
+		<li  class="group">工作好友
+			<ul>
+				<li>苍老师</li>
+				<li>马云</li>
+				<li>奥巴马</li>
+			</ul>
+		</li>
+		<li  class="group">大学好友
+			<ul>
+				<li>辛磊</li>
+				<li>陈毅阳</li>
+				<li>王渝宛</li>
+			</ul>
+		</li>		
+	</ul>
+</body>
+</html>

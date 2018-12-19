@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+  <!--bean的作用：实例化对象  -->
+  <!--class表示要实例化的（完整）类名  --> 
+  <!--id表示获取bean对象的名称     (id作为key，bean对象作为value放到map中)  -->
+ <!--  <bean id="hello" class="cn.tedu.demo.HelloSpring"/> -->
+ <bean id="hello" class="cn.tedu.demo.HelloSpring"/>
+ <!--  factory-method 表示静态方法名-->
+ <bean id="cl" class="java.util.Calendar" factory-method="getInstance"></bean>
+ <!--实例工厂实例化对象  -->
+ <!-- 1 、创建BeanFactory类的对象（因为方法是实例方法，必须要创建对象）
+ 	   2、配置对象调用实例方法
+  -->
+  <bean id="beanFactory" class="cn.tedu.demo.BeanFactory"></bean>
+  <!--factory-bean表示已经实例化好的对象id  -->
+  <bean id="calendar" class="java.util.Calendar" factory-method="getCalendar" factory-bean="beanFactory"></bean>
+  <!-- bean的生命周期 -->
+  <!--init-method表示定义的初始化方法名 -->
+  <!-- destroy-method表示定义的销毁方法名 -->
+  <bean id="beanLife" class="cn.tedu.demo.BeanLife" init-method="init" destroy-method="destroy"></bean>
+  <!--1.实例化对象默认为单例模式
+  		2.scope属性表示设置的bean的作用域，prototype表示多例模式，默认值singleton表示单例模式。
+    -->
+    <!-- lazy-init属性表示bean是否延迟加载，默认是在初始化容器的时候，立即加载；
+    			当lazy-init属性为true时延迟加载，在使用bean的时候加载。
+    			
+     -->
+  	<bean id="king" class="cn.tedu.demo.King" scope="singleton" lazy-init="true"/>
+  	<!--1.实例化业务层的对象  -->
+  	<!--2.property给成员变量赋值（属性赋值）
+  			name表示属性名，ref表示已经创建好的对象的id名
+  	  -->
+  	  <bean id="userDao" class="cn.tedu.dao.UserDaoImpl"></bean>
+  	  <bean id="userDao1" class="cn.tedu.dao.UserDaoImpl"></bean>
+  	<bean id="userService" class="cn.tedu.service.UserServiceImpl">
+  	<!-- 相当于调用set方法 -->
+  	<!-- <property name="userDao" ref="userDao"></property> -->
+  	<!--  constructor-arg表示使用构造方法给成员变量赋值
+  				index表示构造方法参数的索引，从0开始。ref表示已经创建好的对象id； -->
+  	<constructor-arg index="0" ref="userDao"></constructor-arg>
+  	</bean>
+  	<!-- 1.autowire表示自动装配。
+  			 2.byName表示匹配属性名，完成依赖注入（UserServiceImpl中由有个属性userDao,byName方式赋值
+  			 	就是去找id="userDao"名字的实例化对象赋值）。	 
+  	  -->
+  	  <!--1.byType表示按照属性的类型匹配，实现依赖注入。
+  	  		   2.如果有两个对象同属于一个类型，那么使用byType会出现异常。
+  	    -->
+  	<bean id="userService3" class="cn.tedu.service.UserServiceImpl" autowire="byName"></bean>
+  		<bean id="userService4" class="cn.tedu.service.UserServiceImpl" autowire="byType"></bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

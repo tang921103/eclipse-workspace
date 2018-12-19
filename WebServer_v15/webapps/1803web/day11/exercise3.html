@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function(){
+			closeAll();
+	}
+	function closeAll(){
+		var ul = document.getElementById("bigul");
+		var li = document.getElementsByClassName("l");
+		for(var i = 0;i<li.length;i++){
+			var a = li[i].getElementsByTagName("ul")[0];
+			a.style.display = "none";
+		}
+	}
+	function clickfn(){
+		var obj = event.target||event.srcElement;
+		console.log(obj.className);
+		if(obj.className=="l"){
+			var ul = obj.getElementsByTagName("ul")[0];
+			if(ul.style.display=="none"){
+				closeAll();
+				ul.style.display = "block";
+			}else{
+				ul.style.display = "none";
+			}
+		}						
+	}
+</script>
+</head>
+<body>
+<div>
+	<ul id="bigul" onclick="clickfn()">
+		<li class="l">美女
+			<ul>
+				<li>苍老师</li>
+				<li>小泽老师</li>
+				<li>松岗千菜</li>
+			</ul>			
+		</li>
+		<li  class="l">好友
+			<ul>
+				<li>苍老师</li>
+				<li>小泽老师</li>
+				<li>松岗千菜</li>
+			</ul>
+		</li>
+		<li  class="l">同事
+			<ul>
+				<li>苍老师</li>
+				<li>小泽老师</li>
+				<li>松岗千菜</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</body>
+</html>

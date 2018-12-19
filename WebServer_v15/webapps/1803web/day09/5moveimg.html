@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onclick = function(){
+		var myimg = document.getElementById("myimg");
+		//得到原来的位置
+		var x = parseInt(myimg.style.left);
+		console.log(x);
+		if(isNaN(x)){
+			x = 0;
+		}
+		x+=10;
+		//把修改后的值放回去
+		myimg.style.left= x+"px"
+	}
+</script>
+<style type="text/css">
+	img{
+		width:150px;
+		position:absolute;
+		left:10px;
+	}
+</style>
+</head>
+<body>
+	<img src="a.jpg" id="myimg">
+</body>
+</html>

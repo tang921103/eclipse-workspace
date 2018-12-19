@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <style type="text/css">
+	.d1{
+		color:red;
+	}
+	.d2{
+		color:green;
+	}
+	#id选择器{
+		color:blue;
+	}
+	 ul  li  a{
+		color:purple;
+	}
+	#ul .city a{
+		color:red;
+	}
+	ul>li>a{
+		color:orange;
+	}
+	h3,#fz,.c{
+		color:pink;
+	}
+	#wys:HOVER{
+		color:red;
+	}
+	#wys:ACTIVE{
+		color:blue;
+	}
+	#wys:VISITED{
+		color:yellow;
+	}
+</style> 
+</head>
+<body>
+		<div class="d1">类选择器div1</div>
+		<div class="d2">类选择器div2</div>
+		<div class="d1">类选择器div3</div>
+		<div class="d2">类选择器div4</div>
+		<div id="id选择器">id选择器</div>
+		<h2>后代选择器</h2>
+		<a>城市</a>
+		<ul id="ul">
+			<li>北京</li>
+			<li><a>上海</a></a></li>
+			<li class="city"><span><a>广州</a></span>
+		</ul>
+		<h2>子元素选择器</h2>
+		<a>城市</a>
+		<ul>
+			<li>北京</li>
+			<li><a>上海</a></a></li>
+			<li ><span><a>广州</a></span>
+		</ul>
+		<h3>分组选择器</h3>
+		<div id="fz">分组div</div>
+		<span class="c">分组span</span>
+		<h3>伪元素选择器</h3>
+		<span id="wys">伪元素选择器</span>
+</body>
+</html>

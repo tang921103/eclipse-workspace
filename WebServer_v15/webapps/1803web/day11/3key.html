@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function keyDownFn(){
+	//获取字符编码，兼容性问题
+	//var code = event.keyCode;
+	//var code = event.which;
+	var code = window.event ? event.keyCode:event.which;//解决兼容性问题
+	console.log("键盘按下"+code);
+	//把编码转换成字符
+	var str = String.fromCharCode(code);
+	console.log(str);
+	//通过字符规律判断是否是数字 ，48-57为数字
+	if(code>=48&&code<=57){
+		return true;
+	}else{
+		return false;
+	}
+}
+/* 加载完成事件 */
+onload = function(){
+	var mybtn = document.getElementById("mybtn");
+	/* 绑定事件 */
+	mybtn.onclick = function(){
+		alert("按钮事件绑定成功");
+	}
+}
+</script>
+<style type="text/css">
+	
+</style>
+</head>
+<body>
+	<input type="text" onkeydown=" return keyDownFn()">
+	<input type="button" value="动态绑定" id="mybtn">
+</body>
+</html>

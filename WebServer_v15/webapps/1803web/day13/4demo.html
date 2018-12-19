@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("table:eq(0) input").click(function(){
+			var tds = $(this).parent().parent().children();
+			var last = $("#last");
+			var tr = $("<tr></tr>");
+			last.before(tr);
+			for(var i = 0;i<2;i++){
+				var td = $("<td>"+tds[i].innerText+"</td>");
+				tr.append(td);
+			}
+			var mount = $("<td><span><input type='button' value='-' onclick='subfn(this)' ></span><input type='text' value='1' class='del'><span><input type='button' value='+' onclick='addfn(this)'></span></td>")
+			tr.append(mount);
+			var price = parseInt(tds[1].innerText);
+			var count = parseInt(mount.children("input[type='text']").val());
+			var total = price*count;
+			var money = $("<td></td>");
+			money.text(total+"");
+			tr.append(money);
+			var but = $("<td><input type='button' value='x'</td>");
+			tr.append(but);
+		});		
+		
+	});
+	 function subfn(btn){
+		var subbtn = $(btn).parent().parent().children().eq(1);
+		var d = subbtn.val()
+		d--;
+		subbtn.val(d);	
+		var price = $(btn).parent().parent().prev().val();
+		console.log(price);	
+		var money = d*price;
+		$(btn).parent().parent().next().val(money);
+		} 
+	 function addfn(btn){
+			var subbtn = $(btn).parent().parent().children().eq(1);		
+			var d = subbtn.val();
+			d++;
+			subbtn.val(d);
+			} 
+		function calfn(){
+			
+		}
+</script>
+<style type="text/css">
+body{
+	text-align:center;
+}
+table{
+width:80%;
+border:1px soli red;
+	margin:0 auto;
+	border-collapse:collapse;
+}
+th,td{
+	border:1px solid red;
+}
+.del{
+	margin:0 auto;
+	width:20px;
+	text-align:center;
+}
+</style>
+</head>
+<body>
+	<h1>特价商品</h1>
+	<table>
+		<tr>
+			<th>商品名称</th>
+			<th>商品单加</th>
+			<th>商品库存</th>
+			<th>好评率</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>水杯</td>
+			<td>25</td>
+			<td>3</td>
+			<td>89</td>
+			<td><input type="button" value="加入购物车"></td>			
+		</tr>
+		<tr>
+			<td>鼠标</td>
+			<td>199</td>
+			<td>20</td>
+			<td>80</td>
+			<td><input type="button" value="加入购物车"></td>			
+		</tr>
+		<tr>
+			<td>键盘</td>
+			<td>299</td>
+			<td>15</td>
+			<td>85</td>
+			<td><input type="button" value="加入购物车"></td>			
+		</tr>
+	</table>
+	<h1>购物车</h1>
+	<table>
+		<tr>
+		<th>商品名称</th>
+		<th>单价</th>
+		<th>数量</th>
+		<th>金额</th>
+		<th>操作</th>
+		</tr>
+		<tr id="last">
+			<td colspan="5">总价：</td>
+		</tr>
+	</table>
+</body>
+</html>

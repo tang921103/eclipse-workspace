@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+onclick = function(event){
+	//创建一个新元素
+	var img = document.createElement("img");
+	//给元素设置图片
+	img.src="../imgs/a.jpg";
+	//添加到页面中
+	document.body.appendChild(img);
+	//给图片设置位置
+	img.style.left = (event.clientX-50)+"px";
+	img.style.top = (event.clientY-50)+"px";
+}
+
+function downfn(event){
+	console.log("鼠标按下了");
+	console.log("x:"+event.clientX+"y:"+event.clientY);
+}
+function upfn(){
+	//console.log("鼠标松开了");
+}
+function movefn(){
+	//console.log("鼠标移动了");
+}
+
+
+</script>
+<style type="text/css">
+	div{
+		width:200px;
+		height:200px;
+		background-color:green;
+		margin:0 auto;
+	}
+	img{
+		width:100px;
+		height:100px;
+		position:absolute;
+	}
+</style>
+</head>
+<body>
+	<div onmousedown="downfn(event)" onmouseup="upfn()" onmousemove="movefn()">
+		
+	</div>
+</body>
+</html>

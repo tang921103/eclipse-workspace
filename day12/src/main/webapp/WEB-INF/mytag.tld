@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+  <tlib-version>1.0</tlib-version>
+  <short-name>t</short-name>
+  <uri>cn.tedu.tangqiu</uri>
+  
+  <tag>
+    <name>hello</name>
+    <tag-class>tag.HelloTag</tag-class>
+    <!-- body-content 设置标签体的内容 
+    	empty : 表示该标签没有标签体
+    	scriptless : 该标签有标签体，但是标签体的内容不能是java代码（java代码片段，jsp表达式，jsp声明）。
+    	JSP ： 该标签有标签体并且标签体的内容可以是java代码。但是，只有复杂标签技术支持该值。
+    -->
+    <body-content>empty</body-content>
+    <attribute>
+        <name>info</name>
+        <!-- 如果值为true，表示该属性是必须的。 -->
+        <required>false</required>
+        <!--如果值为true，表示属性可以动态赋值，即可以使用el表达式来赋值 -->
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>qty</name>
+        <!-- 如果值为true，表示该属性是必须的。 -->
+        <required>false</required>
+        <!--如果值为true，表示属性可以动态赋值，即可以使用el表达式来赋值 -->
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  </taglib>

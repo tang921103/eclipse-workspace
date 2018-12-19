@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var count = 0;
+	setInterval(function(){
+		//得到页面中的所有图片元素
+		var imgs = document.getElementsByTagName("img");
+		count++;
+		console.log(count%3);
+		//遍历每一张图片
+		for(var i = 0;i<imgs.length;i++){
+			var img = imgs[i];
+			//找到需要显示的元素
+			if(i==count%3){
+				img.style.display = "block";
+			}else{
+				//需要隐藏的元素
+				img.style.display = "none";
+			}
+		}
+	},200);
+</script>
+<style type="text/css">
+	div,img{
+		width:300px;
+		height:300px;
+		overflow:hidden;
+	}
+</style>
+</head>
+<body>
+	<div id="big">
+		<img src="a.jpg">
+		<img src="b.jpg">
+		<img src="e.jpg">
+	</div>
+	
+</body>
+</html>

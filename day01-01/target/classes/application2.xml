@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+  	<bean id="valueBean" class="cn.tedu.demo.ValueBean">
+  		<property name="name" value="张三"></property>
+  		<property name="age" value="22"></property>
+  		<property name="like">
+  			<list>
+  				<value>旅游</value>
+  				<value>看片</value>
+  				<value>打游戏</value>
+  			</list>
+  		</property>
+  		<property name="city">
+  			<set>
+  				<value>祖安</value>
+  				<value>的玛西亚</value>
+  			</set>
+  		</property>
+  		<property name="map">
+  			<map>
+  				<entry key="name" value="zhangsan"></entry>
+  				<entry key="age" value="12"></entry>
+  			</map>
+  		</property>
+  		<property name="prop">
+  			<props>
+  				<prop key="driverClassName" >com.mysql.jdbc.Driver</prop>
+  				<prop key="url">jdbc:mysql://localhost:3306/jdbc2</prop>
+  				<prop key="userName">root</prop>
+  				<prop key="passwrod">soft01</prop>
+  				<prop key="initSize">3</prop>
+  				<prop key="maxActive">5</prop>
+  			</props>
+  		</property>
+  	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

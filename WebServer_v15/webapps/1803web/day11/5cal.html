@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function cal(){
+		//获取事件源
+		var obj = event.target||event.srcElement;
+		console.log(obj.nodeName);
+		//找出按钮
+		if(obj.nodeName=="INPUT"){
+			//得到p标签
+			var p = document.getElementsByTagName("p")[0];
+			if(obj.value=="="){//等号
+				p.innerText = eval(p.innerText);
+			}else if(obj.value=="C"){//清除按钮
+				p.innerText = "";
+			}else{//追加到p中的内容
+				p.innerText += obj.value;
+			}
+		}
+	}
+</script>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+	border-radius:4px;
+}
+#big{
+	width:168px;
+	margin:0 auto;
+}
+#top_div{
+	overflow:hidden;
+}
+#bottom_div{
+	width:168px;
+	height:220px;
+	overflow:hidden;
+}
+input{
+	width:40px;
+	height:40px;
+	float:left;
+	border:1px solid #ccc;
+	margin:1px;
+}
+p{
+	width:122px;
+	height:38px;
+	border:1px solid #ccc;
+	margin:1px;
+	float:left;
+	line-height:38px;
+}
+h2{
+	text-align:center;
+	font-size:18px;
+}
+</style>
+</head>
+<body>
+	<div id="big" onclick="cal()">
+		<h2>计算器</h2>
+		<div id="top_div">
+			<p></p><input type="button" value="C">
+		</div>
+		<div id="bottom_div">
+		<input type="button" value="7" class="bottom_input">
+		<input type="button" value="8" class="bottom_input">
+		<input type="button" value="9" class="bottom_input">
+		<input type="button" value="/" class="bottom_input">
+		<input type="button" value="4" class="bottom_input">
+		<input type="button" value="5" class="bottom_input">
+		<input type="button" value="6" class="bottom_input">
+		<input type="button" value="*" class="bottom_input">
+		<input type="button" value="1" class="bottom_input">
+		<input type="button" value="2" class="bottom_input">
+		<input type="button" value="3" class="bottom_input">
+		<input type="button" value="-" class="bottom_input">
+		<input type="button" value="0" class="bottom_input">
+		<input type="button" value="." class="bottom_input">
+		<input type="button" value="=" class="bottom_input">
+		<input type="button" value="+" class="bottom_input">
+		</div>
+	</div>
+</body>
+</html>

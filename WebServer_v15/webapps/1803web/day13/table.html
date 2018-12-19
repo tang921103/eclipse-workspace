@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	function insert(thi){
+		var remain = $(thi).parent().siblings().eq(2).text();
+		if(remain>0){			
+			var name = $(thi).parent().siblings().eq(0).text();
+			var check = true;			
+			$("table:eq(1) tr").each(function(){
+				var addname = $(this).children().eq(0).text();
+				if(name==addname){
+					var c = $(this).children().eq(2).children().eq(1).text();
+					c++;
+					check = false;
+					$(this).children().eq(2).children().eq(1).text(c);
+				var money = 	$(this).children().eq(1).text();
+				$(this).children().eq(3).text(c*money);
+					calfn();
+				}
+			});				
+			if(check){
+				var price = $(thi).parent().siblings().eq(1).text();
+				var newtr = $("<tr></tr>");
+				var nametd = $("<td>"+name+"</td>");
+				var pricetd = $("<td>"+price+"</td>");
+				var amountd = $("<td><input type='button' value='-' class='input1' onclick='subfn(this)'><span>1</span><input type='button' value='+' class='input1' onclick='addfn(this)'></td>");
+				var moneytd = $("<td>"+price+"</td>");
+				var deltd = $("<td><input type='button' value='X' class='input1' onclick='delfn(this)'></td>");
+				newtr.append(nametd);
+				newtr.append(pricetd);
+				newtr.append(amountd);
+				newtr.append(moneytd);
+				newtr.append(deltd);
+				$("#total").before(newtr);																		
+			}
+			remain--;
+			$(thi).parent().siblings().eq(2).text(remain);												
+		}
+		calfn();	
+	}
+	
+	$(function(){
+		$("table:eq(0) input").click(function(){
+			insert(this);
+		});
+	});
+function subfn(btu){
+	var c = $(btu).next().text();
+	c--;
+	if(c>=0){
+		$(btu).next().text(c);
+		var money = $(btu).parent().prev().text();
+		$(btu).parent().next().text(money*c);	
+		var addname =  $(btu).parent().prev().prev().text();
+		$("table:eq(0) tr").each(function(){
+			var name = $(this).children().eq(0).text();
+			if(addname==name){
+				var remain = $(this).children().eq(2).text();
+				remain++;
+				$(this).children().eq(2).text(remain);
+			}
+		});	
+		calfn();
+	}	
+}
+function addfn(btu){
+	var c = parseInt($(btu).prev().text());
+	var addname =  $(btu).parent().prev().prev().text();
+	$("table:eq(0) tr").each(function(){
+		var name = $(this).children().eq(0).text();
+		if(addname==name){
+			var remain = parseInt($(this).children().eq(2).text());
+			console.log("remain:"+remain);
+			if(remain>0){
+				c++;	
+				$(btu).prev().text(c);
+				var money = $(btu).parent().prev().text();
+				$(btu).parent().next().text(money*c);
+				remain--;
+				$(this).children().eq(2).text(remain);
+				calfn();
+			}
+		}
+	});		
+}
+function delfn(but){		
+		var c = parseInt($(but).parent().prev().prev().children("span").text());
+		var addname = $(but).parent().siblings().eq(0).text();
+		$("table:eq(0) tr").each(function(){
+			var name = $(this).children().eq(0).text();
+			if(addname==name){
+				var remain = parseInt($(this).children().eq(2).text());
+				var cal = remain + c;
+				$(this).children().eq(2).text(cal);
+			}
+		});
+		$(but).parent().parent().remove();
+		calfn();
+		
+}
+function calfn(){
+	var total = 0;
+	$("table:eq(1) tr").each(function(){
+	var money =	parseFloat($(this).children().eq(3).text());
+	if(!isNaN(money)){
+		total += money;
+	}
+	});
+	$("#total td").text("总价："+total);
+}
+function addinfn(){
+		var result = true;
+		var tr = $("<tr></tr>");
+		var conts = $("div input:first").val();		
+		var td =  $("<td>"+conts+"</td>");
+		tr.append(td);		
+			 conts =$("div input:eq(1)").val();
+			 console.log(conts);
+			if(!isNaN(conts)){
+			 td = $("<td>"+conts+"</td>");
+			 tr.append(td);	
+			}else{
+				result = false;
+			}
+			conts =$("div input:eq(2)").val();
+			 console.log(conts);
+			if(!isNaN(conts)){
+			 td = $("<td>"+conts+"</td>");
+			 tr.append(td);	
+			}else{
+				result = false;
+			}
+			conts =$("div input:eq(3)").val();
+			 console.log(conts);
+			if(!isNaN(conts)){
+			 td = $("<td>"+conts+"</td>");
+			 tr.append(td);	
+			}else{
+				result = false;
+			}
+			tr.append($("<td><input type='button' value='加入购物车' onclick='insert(this)'></td>"));
+		if(result){
+			$("table:eq(0)").append(tr);
+		}
+}
+</script>
+<style type="text/css">
+	*{
+		margin:0px;
+		padding:0px;
+		text-align:center;
+	}
+	table{
+		width:50%;
+		margin:0 auto;
+		text-align:center;
+		border:1px solid green;
+		border-collapse:collapse;
+	}
+	th,td{
+		border:1px solid green;
+	}
+	.input1{
+		width:30px;
+	}
+	span{
+		display:inline-block;
+		width:20px;
+	}
+	#total td{
+		text-align:left;
+		font-weight:bold;
+	}
+	div{
+		width:50%;
+		margin:5px auto;
+		overflow:hidden;
+	}
+	div input{
+	width:12%;	
+	height:22px;
+	width:120px;
+	}
+</style>
+</head>
+<body>
+		<div>
+			<input type="text" placeholder="商品名称">
+			<input type="text" placeholder="商品单价">
+			<input type="text" placeholder="商品库存">
+			<input type="text" placeholder="好评率">
+			<input type="button" value="添加到特价商品" id="add" onclick="addinfn()">
+		</div>
+	<h1>特价商品</h1>
+	<table>
+		<tr>
+			<th>商品名称</th>
+			<th>商品单价</th>
+			<th>商品库存</th>
+			<th>好评率</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>水杯</td>
+			<td>25</td>
+			<td>3</td>
+			<td>89</td>
+			<td><input type="button" value="加入购物车"  ></td>			
+		</tr>
+		<tr>
+			<td>鼠标</td>
+			<td>199</td>
+			<td>20</td>
+			<td>80</td>
+			<td><input type="button" value="加入购物车"></td>			
+		</tr>
+		<tr>
+			<td>键盘</td>
+			<td>299</td>
+			<td>15</td>
+			<td>85</td>
+			<td><input type="button" value="加入购物车"></td>			
+		</tr>
+		<tr>
+			<td>耳机</td>
+			<td>100</td>
+			<td>50</td>
+			<td>90</td>
+			<td><input type="button" value="加入购物车"></td>			
+		</tr>
+	</table>
+		
+	<h1>购物车</h1>
+	<table>
+		<tr>
+		<th>商品名称</th>
+		<th>单价</th>
+		<th>数量</th>
+		<th>金额</th>
+		<th>操作</th>
+		</tr>
+		<tr id="total">
+			<td colspan="5">总价：</td>
+		</tr>
+	</table>
+</body>
+</html>

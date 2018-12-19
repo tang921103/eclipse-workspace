@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>文本框</h2>
+	<form action="">
+	<div>
+		用户名：<input type="text" name="username" maxlength="10" value="默认值" readonly="readonly">
+	</div>
+	<div>
+		昵称：<input type="text" name="nickname" maxlength="10" value="默认值">
+	</div>	
+	<div>
+		密码：<input type="password" name="password" maxlength="10">
+	</div>
+	<div>
+		性别：<input type="radio" name="gender" value="1" id="nan"><label for="nan">男</label>
+			<input type="radio" name="gender" value="2" checked="checked">女
+			<input type="radio" name="gender" value="3">其他		
+	</div>
+	<div>
+		爱好：<input type="checkbox" name="hobby" value="dy">看小电影 
+				 <input type="checkbox" name="hobby" value="cg">唱歌
+				 <input type="checkbox" name="hobby" value="sb">散步
+	</div>
+	<div>
+		照片：<input type="file" name="pic">
+	</div>
+	<div>
+		生日：<input type="date" name="birthday">
+	</div>
+	<div>
+		<input type="hidden" name="id" value="1">
+	</div>
+	<div>
+		个人介绍：<textarea rows="3" cols="30" name="introduction">默认内容</textarea>
+	</div>
+	<div>
+		<select name="city">
+			<option >选择城市：</option>
+			<option value="bj">北京</option>
+			<option value="sh">上海</option>
+			<option value="gz">广州</option>
+		</select>
+	</div>
+	<div>
+		<input type="submit" value="注册">
+		<input type="reset" value="重置">
+		<input type="button" value="按钮">
+	</div>
+	<div></div>
+	</form>
+</body>
+</html>

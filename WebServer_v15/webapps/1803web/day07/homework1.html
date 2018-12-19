@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body{
+	font-size:20px;
+}
+.input1{
+	width:100px;
+	height:30px;
+	border:1px solid red;
+}
+.input2{
+	width:40px;
+	height:40px;
+	border:1px solid red;
+	display:block;
+}
+#div1{
+	width:40px;
+	height:160px;
+	display:inline-block;
+	vertical-align:middle;
+}
+#div2{
+	width:100px;
+	height:30px;
+	border:1px solid red;
+	display:inline-block;
+	vertical-align:middle;
+}
+</style>
+<script type="text/javascript">
+function getnumber(numid){
+	var num = document.getElementById(numid);
+	var number = num.value;	
+	if(isNaN(number)){
+		alert("输入数字有误");
+	}else{
+		return number;
+	}
+	return null;
+}
+	function result1(){
+		var number1 = getnumber("num1");
+		console.log(number1);
+		var number2 = getnumber("num2");
+		console.log(number2);
+		var num3 = document.getElementById("div2");
+		console.log(num3);
+		num3.innerText = Number(number1) + Number(number2);
+	}
+	function result2(){
+		var number1 = getnumber("num1");
+		console.log(number1);
+		var number2 = getnumber("num2");
+		console.log(number2);
+		var num3 = document.getElementById("div2");
+		console.log(num3);
+		num3.innerText = number1-number2;
+	}
+	function result3(){
+		var number1 = getnumber("num1");
+		console.log(number1);
+		var number2 = getnumber("num2");
+		console.log(number2);
+		var num3 = document.getElementById("div2");
+		console.log(num3);
+		num3.innerText = number1*number2;
+	}
+	function result4(){
+		var number1 = getnumber("num1");
+		console.log(number1);
+		var number2 = getnumber("num2");
+		console.log(number2);
+		var num3 = document.getElementById("div2");
+		console.log(num3);
+		num3.innerText = number1/number2;
+	}
+</script>
+</head>
+<body>
+	<input type="text" class="input1" id="num1">
+	<div id="div1">
+		<input type="button" value="+" class="input2" onclick="result1()">
+		<input type="button" value="-" class="input2" onclick="result2()">
+		<input type="button" value="*" class="input2" onclick="result3()">
+		<input type="button" value="/" class="input2" onclick="result4()">
+	</div>
+	<input type="text" class="input1" id="num2"> =
+	<div id="div2"></div>
+	
+</body>
+</html>

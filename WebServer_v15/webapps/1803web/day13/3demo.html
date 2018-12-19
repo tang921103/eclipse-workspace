@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#addbut").click(function() {
+			var tr = $("<tr></tr>");
+			$("table").append(tr);
+			var inputs = $("input:lt(3)");
+			for (var i = 0; i < inputs.length; i++) {
+				var td = $("<td></td>");
+				td.text(inputs[i].value);
+				tr.append(td);
+			}
+			var tds = $("<td></td>");
+			var del = $("<input ></input>")
+			del.attr("type", "button");
+			del.val("删除");
+			tds.append(del);
+			tr.append(tds);
+			$("table input").click(function() {
+				$(this).parent().parent().remove();
+			});
+		});
+	});
+</script>
+<style type="text/css">
+table {
+	cellspacing: 0px;
+	text-align: center;
+	width: 200px;
+}
+
+tr {
+	width: 50px;
+	height: 20px;
+}
+
+table>tr>td input {
+	
+}
+</style>
+</head>
+<body>
+	姓名：
+	<input type="text"> 年龄：
+	<input type="text"> 工资：
+	<input type="text">
+	<input type="button" value="添加" id="addbut">
+	<hr>
+	<table border="1px" cellspacing="0px" cellpadding="0px";>
+		<tr>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>性别</td>
+			<td>操作</td>
+		</tr>
+	</table>
+</body>
+</html>

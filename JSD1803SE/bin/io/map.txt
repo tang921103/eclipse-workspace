@@ -1,0 +1,76 @@
+Map： 翻译为映射（一般不翻译）
+
+
+1.Map是接口，在java.util包中
+2.java中提供的面向“查询”的API
+	查询中输入的被检索信息称为“key”，关键信息；
+	查询结果称为“value”，值；
+	Map提供了根据key查询value的功能；
+3.Map接口有两个常用实现类
+	最重要的实现类  HashMap,(Hash 散列  ，HashMap也称为散列表，哈希表）
+	HashMap是查询“最快”的API
+	TreeMap 采用二叉树算法，相当于2分查找，速度很快。
+4.Map中Key不允许重复，Value可以重复。
+5.尽量将软件中的查找功能用Map进行优化，提高软件的性能。（面试）
+
+
+使用Map：
+1.创建对象(是空的，没有数据)
+		Map map = new HashMap();
+2.将被查询的 Key-Value 成对的存储到map
+		Object obj = 	map.put(key,value);
+		如果第一次添加，返回null；如果第二次添加put同样的key，返回被替换的对象。
+3.查询时候，根据Key查询到Value
+		value   map.get(key);
+		如果没有找到返回null；
+		
+Map的API方法：
+	int size() 检查map集合中元素的个数；
+	boolean isEmpty() 检测map集合是否为空；
+	V remove(Object key) 删除map集合中的指定元素，返回被删除的value；
+	void clear() 清空map集合中的元素；
+	boolean containsKey(Object key) 
+	boolean containsValue(Object value)
+	
+	
+HashMap 的工作原理：（面试时难题）
+1.HashMap内部利用数组存储数据。
+2.根据key的hashCode值计算出数组的下标位置，进行添加数组或查询数据。
+		根据hashCode计算出数组下标位置的算法称为“散列算法”；
+3.数组下标位置会重复，重复时候利用链表存储重复元素。这个链表称为“散列桶”
+4.添加和查询时候如果有散列桶，则根据equals方法逐一比较找到位置。
+  由于利用hashCode直接定位到数组的存储位置，无需依次查找，所以，HashMap
+  具有极高的查找性能。
+  影响HashMap的查找性能因素：
+		1.如果数据多，而数组容量少，大量数据重复的存储在散列桶中，造成在散列桶中
+		进行大量的顺序查找，性能差。
+		解决办法：提供更多的数组容量，减少散列桶中重复的数据。
+		如果保持 元素的总数和数组容量的比值少与7 5%，出现重复位置的情况少与3个。
+		HashMap中默认的“加载因子”值就是75%；HashMap中添加元素时，HashMap始终会保持元素
+		总数和数组容量的比值少与75%，如果超过75%则进行数组扩容“重新散列”；
+		2.hashCode方法： java在Object类上定义了hashCode方法，用于支持HashMap中的算法。
+		作为key的类型必须很好的实现hashCode方法，否则会影响HashMap性能；
+		（1）当两个对象equals方法比较结果为true时，他们的hashCode相同
+		（2）当两个对象equals方法比较结果为false时，他们的hashCode尽可能的不同。
+		3.equals方法：hashCode添加或查找时，先根据hashCode计算数组下标位置，然后再利用
+		equals方法比较key对象是否相同。
+		 如果key的hashCode和equals方法“不一致”，会造成HashMap工作异常。可能重复添加，
+		 或者查找不到数据。
+		 
+		 建议：一定成对重写key的equals和hashCode方法。
+		 java中的String、Integer等都成对的重写了equals和hashCode方法。
+		4.创建HashMap的性能优化参数
+		                  new HashMap(数组容量，加载因子）
+		   默认new HashMap()等价new HashMap(16,0.75f);
+		   在添加到12个元素以后进行扩容。
+		   如果事先可以预知添加到HashMap中的元素数量，则可以声明足够大的容量，避免反复扩容浪费时间。
+		   如果有1000条数据需要添加到HashMap,则new HashMap（1500）;(加载因子默认为0.75，可以不写)。
+		
+	Map的遍历（迭代）
+		
+		
+		
+		
+		
+		
+		

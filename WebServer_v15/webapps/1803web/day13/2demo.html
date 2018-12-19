@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	var cities = [ [ "唐山", "邯郸", "秦皇岛" ], [ "哈尔滨", "佳木斯", "齐齐哈尔" ],
+	[ "青岛", "济南", "烟台" ], [ "武汉", "宜昌", "恩施" ] ];
+	$(function(){
+		$("select:first").change(function(){
+			var x = parseInt($(":selected").val());
+			if(!isNaN(x)){
+				var city = cities[x];
+				var y = $("select:last");
+				$("select:eq(1)").html("<option>请选择</option>");
+				/* y.empty();
+				var m = $("<option>"+"请选择"+"</option>"); 
+				y.append(m);
+				*/
+				for(var i = 0;i<city.length;i++){
+					var c = $("<option>"+city[i]+"</option>");
+					y.append(c);
+			}		
+			}
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<select >
+		<option>请选择</option>
+		<option value="0">河北</option>
+		<option value="1">黑龙江</option>
+		<option value="2">山东</option>
+		<option value="3">湖北</option>
+	</select>
+	<select id="s2">
+		<option>请选择</option>
+	</select>
+</body>
+</html>

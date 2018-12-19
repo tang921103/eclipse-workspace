@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function addTable1(){
+		var tableDiv = document.createElement("div");
+		var table = document.createElement("table");
+		for(var i = 0;i<4;i++){
+			var tr = document.createElement("tr");
+			table.appendChild(tr);
+			for(var j = 0;j<5;j++){
+				var td = document.createElement("td");
+				td.innerText = "ABC";
+				tr.appendChild(td);
+			}			
+		}
+		document.body.appendChild(tableDiv);
+		tableDiv.appendChild(table);
+	}
+	function addTable2(){
+		var tableDiv = document.createElement("div");
+		var table = document.createElement("table");
+		for(var i = 0;i<5;i++){
+			var tr = document.createElement("tr");
+			table.appendChild(tr);
+			for(var j = 0;j<6;j++){
+				var td = document.createElement("td");
+				td.innerText = "ABC";
+				tr.appendChild(td);
+			}			
+		}
+		document.body.appendChild(tableDiv);
+		tableDiv.appendChild(table);
+	}
+	function add(){
+		var tableDiv = document.createElement("div");
+		var table = document.createElement("table");
+		var rowInput = document.getElementById("input1");
+		var colInput = document.getElementById("input2");
+		var rows = parseInt(rowInput.value);
+		var cols = parseInt(colInput.value);
+		for(var i = 0;i<rows;i++){
+			var tr = document.createElement("tr");
+			table.appendChild(tr);
+			for(var j = 0;j<cols;j++){
+				var td = document.createElement("td");
+				td.innerText = "ABC";
+				tr.appendChild(td);
+			}			
+		}
+		document.body.appendChild(tableDiv);
+		tableDiv.appendChild(table);
+	}
+</script>
+<style type="text/css">
+	table{
+		text-align:center;
+	}
+	td{
+		width:50px;
+		height:50px;
+		border:1px solid green;
+	}
+</style>
+</head>
+<body>
+<input type="button" value="添加4行5列的表格" onclick="addTable1()">
+<input type="button" value="添加5行6列的表格" onclick="addTable2()">
+行数<input type="text" id="input1"> 列数<input type="text" id="input2">
+<input type="button" value="点击添加" onclick="add()">
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style type="text/css">
+	#big{	
+		width:300px;
+		height:300px;
+		background-color:red;	
+	}
+	.small0{
+		width:100px;
+		height:100px;
+		background-color:green;
+		float:left;
+	}
+	.small1{
+		width:100px;
+		height:100px;
+		background-color:yellow;
+		float:left;
+	}
+</style>
+<script type="text/javascript">
+	function add(){
+		var bigdiv = document.getElementById("big");
+		console.log(1);
+		for(var i = 0;i<9;i++){
+			bigdiv.innerHTML += "<div class='small"+i%2+"'>"+i+"</div>";
+		}
+	}
+</script>
+<body>
+	<input type="button" value="添加" onclick="add()">
+	<div id="big">
+		
+	</div>	
+</body>
+</html>

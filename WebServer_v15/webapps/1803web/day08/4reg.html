@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*
+ * 正则应用场景：1：查找内容 2：校验文本 
+ */
+//1.创建正则的两种方式
+	//直接创建 第一个/代表正则 ，第二个/代表模式 
+	// 模式： g 全局查找；i 忽略大小写
+	//var reg1 = /^a/i;//a开头的 忽略大小写
+	//reg1 = /m$/;//m结尾
+	//reg1 =/\d{2}/;//包含任意两个数字
+	//reg1 = /^m\d{3,5}c$/;//m开头 c结尾 中间3-5个数字
+	//reg1 = /^\w{6,10}$/; 用户名或密码 6-10位数字，字母，下划线
+	
+	//通过对象创建  第一个参数是正则，第二个是模式(没有模式可以不加)
+	//var reg2 = new RegExp("^a","i");
+	//reg2 = new RegExp("^\\w{6,10}$");
+	//2.和正则相关的函数
+	//2.1 正则对象的函数
+	//var str = "You can you up no can no b b";
+	//创建查找no的正则
+	//var reg = /no/g;
+	//2.1.1得到查找到的内容 如果添加了g ，则是全局查找
+	//第一次找到第一个，第二次找到第二个，找不到后返回null
+	//如果不加g ， 每次得到的都是第一个   
+	/* alert(reg.exec(str));
+	alert(reg.exec(str));
+	alert(reg.exec(str)); */
+	//2.1.2 判断目标字符是否符合规则
+	/* var reg2 = /^you/i;
+	alert(reg2.test(str)); */
+	//2.2 字符串和正则相关的函数
+	var str2 = "You can you up no can no b b";
+	var reg2 = /no/g;
+	//1.从字符串中找到匹配的内容，exec（）函数所做的事
+	//结果直接到一个数组中，比exec好用
+	alert(str2.match(reg2));
+	//2.查找并替换
+	alert(str2.replace(reg2,"bu"));
+	function check(){
+		var input = document.getElementById("myinput");
+		var str = input.value;
+		//var reg = /^m\d{3,5}c$/;
+		var reg = /^\w{6,10}$/;
+		var test = reg.test(str);
+		if(test){
+			alert("正确")
+		}else{
+			alert("错误");
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="myinput">
+	<input type="button" value="校验" onclick="check()">
+</body>
+</html>

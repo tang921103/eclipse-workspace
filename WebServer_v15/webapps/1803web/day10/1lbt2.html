@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+		//页面加载完初始化图片位置
+		onload  = function(){
+			var imgs = document.getElementsByTagName("img");
+			//遍历每张图片，让图片的位置平铺开
+			for(var i = 0;i<imgs.length;i++){
+				var img = imgs[i];
+				img.style.left = i*500+"px";
+			}
+		}
+		function move(){
+			/*开启定时器  美妙移动60次，每次移动5px*/
+			 var moveId = setInterval(function(){
+				 var imgs = document.getElementsByTagName("img");
+				 for(var i = 0;i<imgs.length;i++){
+					 var img = imgs[i];
+					 var oldLeft = parseInt(img.style.left);
+					 oldLeft -= 5;
+					 if(oldLeft <= -500){
+						 oldLeft = 1500;
+						 /* 图片移动一格就停止 */
+						 clearInterval(moveId);
+					 }
+					 img.style.left = oldLeft+"px";
+				 }
+			 },1000/60);			
+		}
+		onclick = function(){
+			move();
+		}	
+		/* 让两秒倒计时的计时器停止 */
+		function stop(){
+			clearInterval(myId);
+		}
+		var myId ;
+		function start(){
+			/*每隔两秒移动一次图片  */
+		 myId = setInterval(function(){
+				move();
+			},2000);	
+		}
+		//一运行就开始移动图片
+		start();
+		/* 离开页面停止 */
+		onblur = function(){
+			stop();
+		}
+		onfocus = function(){
+			start();
+		}
+</script>
+<style type="text/css">
+	div,img{
+		width:500px;
+		height:300px;
+	}
+	div{
+		position:relative;
+		 overflow:hidden;
+		 margin:0 auto;
+	}
+	img{
+		position:absolute;
+	}
+</style>
+</head>
+<body>
+	<div onmouseover="stop()" onmouseout="start()">
+		<img src="a.jpg"> <img src="b.jpg"> <img src="e.jpg">
+		<img src="o.jpg">
+	</div>
+
+</body>
+</html>

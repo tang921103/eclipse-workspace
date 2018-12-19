@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+  		<servlet-name>helloServlet</servlet-name>
+  			<!--要写完整的类名，Servlet容器会会利用java反射机制来根据类名找到类的字节码文件，然后完成类的加载和实例化  -->
+  		<servlet-class>web.HelloServlet</servlet-class>
+  </servlet>
+	<servlet-mapping>
+		<servlet-name>helloServlet</servlet-name>
+		<!--告诉容器请求路径与Servlet的对应关系  
+			注：访问servlet的规则
+			http://ip:port/day01/hello
+		  -->
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+</web-app>

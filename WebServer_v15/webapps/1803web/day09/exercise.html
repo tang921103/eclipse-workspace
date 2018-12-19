@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var count = 0;
+ setInterval(function(){
+		count++;
+		var big = document.getElementsByTagName("img");
+		for(var i = 0;i<big.length;i++){
+			if(i==count%3){
+				big[i].style.display = "block";
+			}else{
+				big[i].style.display = "none";
+			}
+		}
+	},1000); 
+	
+</script>
+<style type="text/css">
+#big,img {
+	width:400px;
+	height:400px;
+	border:1px solid red;
+	overflow:hidden;
+}
+#next{
+	width:400px;
+	height:400px;
+	border:1px solid red;
+	background-color:red;
+}
+</style>
+</head>
+<body>
+	<div id="big">
+		<img src="a.jpg">
+		<img src="b.jpg">
+		<img src="e.jpg">
+		<img src="o.jpg">
+	</div>
+	<div id="next"></div>
+ </body>
+</html>

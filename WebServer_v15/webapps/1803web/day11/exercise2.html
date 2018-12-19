@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	function cal(){		
+		 var obj2 = event.target||event.srcElement;
+		var p = document.getElementsByTagName("p")[0];
+		console.log(obj2.nodeName);	
+		if(obj2.nodeName=="INPUT"){	
+			 
+			if(obj2.value=="C"){
+				p.innerText = "";
+			}else if(obj2.value=="="){
+				p.innerText = eval(p.innerText);
+							
+			}else{
+				p.innerText += obj2.value;			
+			}
+		}
+	}
+</script>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+	color:#ccc;
+}
+input{
+	width:60px;
+	height:60px;
+	border-radius:4px;
+	margin:4px;
+	float:left;
+	border:none;
+	font-size:22px;
+	color:red;
+}
+#bigDiv{
+	overflow:hidden;
+	width:272px;
+	}
+#bottom_div{
+	overflow:hidden;
+}
+#top_div{
+	overflow:hidden;
+}
+p{
+	width:196px;
+	height:60px;
+	float:left;
+	border-radius:4px;
+	margin:4px;
+	border:none;
+	background-color: buttonface;
+	color:red;
+	line-height:60px;
+}
+</style>
+</head>
+<body>
+	<div id="bigDiv" onclick="cal()">
+		<div id="top_div">
+		<p></p><input type="button" value="C">
+		</div>
+		<div id="bottom_div">
+			<input type="button" value="7">
+			<input type="button" value="8">
+			<input type="button" value="9">
+			<input type="button" value="/">
+			<input type="button" value="4">
+			<input type="button" value="5">
+			<input type="button" value="6">
+			<input type="button" value="*">
+			<input type="button" value="1">
+			<input type="button" value="2">
+			<input type="button" value="3">
+			<input type="button" value="-">
+			<input type="button" value="0">
+			<input type="button" value=".">
+			<input type="button" value="=">
+			<input type="button" value="+">
+		</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 页面加载完成后隐藏 */	
+	onload = function(){
+		//得到所有的分组li
+		var grouplis = document.getElementsByClassName("group");
+		for(var i = 0;i<grouplis.length;i++){
+			var  li = grouplis[i];
+			//得到li里面的ul.使用document获取的是整个页面的
+			var ul = li.getElementsByTagName("ul")[0];
+			//让ul隐藏，脱离文档流
+			ul.style.display = "none";						
+		}		
+	}
+	function closeAll(){
+		//得到所有的分组li
+		var grouplis = document.getElementsByClassName("group");
+		for(var i = 0;i<grouplis.length;i++){
+			var  li = grouplis[i];
+			//得到li里面的ul.使用document获取的是整个页面的
+			var ul = li.getElementsByTagName("ul")[0];
+			//让ul隐藏，脱离文档流
+			ul.style.display = "none";						
+		}		
+	}
+	function clickfn(){
+		//得到事件源
+		var obj = event.target||event.srcElement;
+		//判断是否是分组li
+		if(obj.className=="group"){
+			//得到ul
+			var ul = obj.getElementsByTagName("ul")[0];
+			if(ul.style.display=="none"){//隐藏
+				//先将所有隐藏
+				closeAll();
+				//显示
+				ul.style.display= "block";
+			}else{//显示
+				ul.style.display = "none";
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<ul onclick="clickfn()">
+		<li class="group">美女好友
+			<ul>
+				<li>杨幂</li>
+				<li>刘亦菲</li>
+				<li>汤唯</li>
+			</ul>
+		</li>
+		<li  class="group">工作好友
+			<ul>
+				<li>苍老师</li>
+				<li>马云</li>
+				<li>奥巴马</li>
+			</ul>
+		</li>
+		<li  class="group">大学好友
+			<ul>
+				<li>辛磊</li>
+				<li>陈毅阳</li>
+				<li>王渝宛</li>
+			</ul>
+		</li>		
+	</ul>
+</body>
+</html>

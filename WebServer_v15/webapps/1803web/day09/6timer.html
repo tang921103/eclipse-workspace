@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//开启定时器
+	//第一个参数是函数，第二个参数是时间间隔
+	//每隔2秒执行函数内的代码
+	var n = 0;
+	var timerId = setInterval(function(){
+		var img = document.getElementById("img");
+		var x = parseInt(img.style.left);
+		if(isNaN(x)){
+			x = 10;
+		}
+		x += 10;
+		img.style.left = x+"px";
+		console.log(n++);
+		if(n>=20){
+			clearInterval(timerId);
+		}
+	},500);
+	
+</script>
+<style type="text/css">
+	img{
+		width:150px;
+		position:absolute;
+		left:10px;
+	}
+</style>
+</head>
+<body>
+	<img src="a.jpg" id="img">
+</body>
+</html>

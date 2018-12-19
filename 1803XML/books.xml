@@ -1,0 +1,75 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!-- 处理指令之前不得有任何内容（包括注释） -->
+<books name = "The Kite Runner" >
+	<book id="bi" language="cn" UTF="Uincode Transformation Format">The Kite Runner</book>
+	<book>土家野夫</book>
+	<book>乡关何处</book>
+	<book>18岁给我一个姑娘</book>
+	<author>冯唐</author>
+<!-- author 作者 注释 -->
+</books>
+
+<!-- 
+标记：<book></book>  根标记只能有一个
+属性 ：  定义在开始标记上 属性名 = "属性值"，属性值和属性名可以任意扩展 ，但是属性名一般用英文
+内容： content
+开始标记和结束标记中间可以有：文本内容 子标记 文本和标记混合
+ 元素：element  开始标记+内容+结束标记 的整体成为元素
+       元素名：标记的名也作为元素的名。
+		空元素：没有内容的元素，可以省略为自结束标记。
+		<name></name> 可以省略为<name/>
+		自结束标记可以少写些代码
+XML是可扩展的语言，其“扩展性”表现为：
+1.标记名（元素名）可以任意扩展。
+2.标记的嵌套关系可以任意扩展（元素的嵌套关系可以任意扩展）。
+3.元素的属性可以任意扩展，没有限制。
+
+xml API
+1.用于读写xml文件。
+2.提供非常简化的访问方法。
+3.xml API能够自动识别xml的语法
+   即能识别：元素、内容、属性、标记等。
+   可以按照标记、属性等获取信息。
+   
+  常见的API：
+  1.SAX API 是w3c组织定义的，是底层的API ，很少直接使用
+  2.DOM AOI	是w3c组织定义的，是底层的API ，很少直接使用
+  3.Dom4j:是对标准DOM的封装扩展，其底层仍然是DOM，在DOM基础之上提供了更加简化的操作API.
+  			是行业标准的API。
+  4.Dom4j是第三方API，需要导入到项目中使用。
+  
+  Maven ：
+  Maven 是java行业中的构建工具。提供了自动化的包管理功能，可以自动下载管理第三方的包。			
+  	使用步骤：
+  	1.在Eclipse中配置Maven
+  	 配置组件（API）仓库
+  	 达内内网仓库：服务器位置 maven.tedu.cn
+  	    		   仓库位置 http://maven.tedu.cn/nexus/content/groups/public/
+  	 国内仓库：maven.aliyun.com
+  	2.创建Maven项目
+  	3.利用Maven自动导入第三方包。
+
+
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function usercheck(){
+	//得到用户输入的用户名
+	var userInput = document.getElementById("user");
+	//创建正则
+	var reg = /^\w{6,10}$/;
+	//得到span标签
+	var usermsg = document.getElementById("usermsg");
+	//校验
+	if(reg.test(userInput.value)){
+		usermsg.className = "ok";
+		return true;
+	}else{
+		usermsg.className = "error";
+		return false;
+	}
+}
+ function pwcheck(){
+	var pw = document.getElementById("pw");
+	var reg = /^\w{8,20}$/;
+	var pwmsg = document.getElementById("pwmsg");
+	if(reg.test(pw.value)){
+		pwmsg.className = "ok";
+		return true;
+	}else{
+		pwmsg.className = "error";
+		return false;
+	}
+} 
+
+</script>
+<style type="text/css">
+.ok{ 
+	color:green;
+}
+.error{
+	color:red;
+}
+</style>
+</head>
+<body>
+<form action="http://doc.tedu.cn" onsubmit="return usercheck()+ pwcheck()==2">
+	<p>
+		账号：<input type="text" id="user" onblur="usercheck()">
+		<span id="usermsg">6~10位字母，数字，下划线</span>
+	</p>
+	<p>
+		密码：<input type="password" id="pw" onblur="pwcheck()">
+		<span id="pwmsg">8~20位字母，数字，下划线</span>
+	</p>
+	<input type="submit" value="登陆">
+</form>
+</body>
+</html>

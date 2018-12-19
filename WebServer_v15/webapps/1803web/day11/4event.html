@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>4event</title>
+<script type="text/javascript">
+	function btnfn() {
+		//获得事件的事件源（本次演示将会得到按钮）
+		//alert(event.target.nodeName);
+		//考虑浏览器兼容问题  个别浏览器不支持target
+		//alert(event.srcElement.nodeName);
+		var obj = event.target||event.srcElement;
+		console.log(obj);
+		console.log(obj.nodeName);
+		console.log(obj.value);
+	}
+	/* function divfn(){
+		//获取事件源
+		var obj = event.target||event.srcElement;
+		//弹出元素名
+		alert(obj.nodeName);
+	} */
+</script>
+<style type="text/css">
+	div,p,input{
+		border:1px solid red;
+	}
+</style>
+</head>
+<body>
+	<div onclick="btnfn()">
+		<p >
+			<input type="button" value="按钮" >
+		</p>
+	</div>
+</body>
+</html>

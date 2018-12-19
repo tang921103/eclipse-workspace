@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var cities = [ [ "唐山", "邯郸", "秦皇岛" ], [ "哈尔滨", "佳木斯", "齐齐哈尔" ],
+			[ "青岛", "济南", "烟台" ], [ "武汉", "宜昌", "恩施" ] ];
+	function changeAction() {
+		//得到显示省的select
+		var s1 = document.getElementById("s1");
+		console.log(s1.value);
+		var index = s1.value;
+		var cityarr = cities[index];
+		console.log(cityarr);
+		var s2 = document.getElementById("s2");
+		//清除之前s2的内容
+		s2.innerHTML = "<option>请选择</option>";
+		//判断选择的省份非“请选择”
+		if (cityarr) {
+			for (var i = 0; i < cityarr.length; i++) {
+				var option = document.createElement("option");
+				option.innerText = cityarr[i];
+				s2.appendChild(option);
+			}
+		}
+	}
+</script>
+
+</head>
+<body>
+	<select id="s1" onchange="changeAction()">
+		<option>请选择</option>
+		<option value="0">河北</option>
+		<option value="1">黑龙江</option>
+		<option value="2">山东</option>
+		<option value="3">湖北</option>
+	</select>
+	<select id="s2">
+		<option>请选择</option>
+	</select>
+</body>
+</html>

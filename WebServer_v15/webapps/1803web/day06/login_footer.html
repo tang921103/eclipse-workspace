@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family: 微软雅黑, 文泉驿正黑, 黑体, serif;
+	font-size: 12px;
+	color: rgb(102, 102, 102);
+	background-color: rgb(245, 245, 245);
+	margin: 0px;
+}
+
+footer {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: white;
+	padding:20px 0;
+}
+
+footer>p {
+	text-align: center;
+}
+/* 三个等大小的div */
+footer>div>div {
+	width: 333px;
+	float: left;
+}
+
+footer>div {
+	/*内容全部浮动，为了识别高度  */
+	overflow: hidden;
+}
+
+#footer_center_div ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#footer_center_div>ul>li {
+	float: left;
+	width: 111px;
+	font-size: 14px;
+	text-align: center;
+}
+
+#footer_center_div>ul>li>ul>li {
+	font-size: 12px;
+	margin: 5px 0;
+}
+
+#imgli {
+	position: relative;
+	left: -6px;
+}
+
+#footer_right_div div{
+	width:166px;
+	float:left;
+}
+#footer_right_div div h3{
+	margin:0 0 10px 0;
+	
+}
+#footer_right_div{
+	height:87px;
+	padding:10px 0;
+	text-align:center;
+}
+#footer_left_div img{
+	margin-left:40px;
+}
+</style>
+</head>
+<body>
+	<footer>
+		<div>
+			<div id="footer_left_div">
+				<img alt="" src="../images/footer/logo.png"> <img alt=""
+					src="../images/footer/footerFont.png">
+			</div>
+			<div id="footer_center_div">
+				<ul>
+					<li>买家帮助
+						<ul>
+							<li>新手指南</li>
+							<li>服务保障</li>
+							<li>常见问题</li>
+						</ul>
+					</li>
+					<li>商家帮助
+						<ul>
+							<li>商家入驻</li>
+							<li>商家后台</li>
+						</ul>
+					</li>
+					<li>关于我们
+						<ul>
+							<li>关于达内</li>
+							<li>联系我们</li>
+							<li id="imgli"><img src="../images/footer/sinablog.png"><img
+								src="../images/footer/wechat.png"></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="footer_right_div">
+				<div>
+					<h3>学子商城客户端</h3>
+					<img src="../images/footer/android.png"> <img
+						src="../images/footer/ios.png">
+				</div>
+				<div>
+					<img src="../images/footer/erweima.png">
+				</div>
+			</div>
+		</div>
+		<p>© 2017 达内集团有限公司 版权所有 京ICP证xxxxxxxxxxx</p>
+	</footer>
+</body>
+</html>

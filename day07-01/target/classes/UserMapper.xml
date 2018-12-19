@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+	<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+		"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+		<!-- namespace表示命名空间，值唯一 -->
+	<mapper namespace="userDao">
+		<!--插入user对象  -->
+		<!-- void insertUser(User user) -->
+		<!-- 1.insert表示定义insert语句的节点 
+				2.id表示节点的名称，值唯一
+				3.parameterType表示定义参数的类型
+				4.#{username}表示从user对象中取出username属性值，给username字段赋值。
+		-->	
+		<insert id="insertUser" parameterType="cn.tedu.bean.User">
+			insert into t_user(
+				username,password,phone,email	
+			) values(
+				#{username},#{password},#{phone},#{email}
+			)
+		</insert>
+		<!--修改用户信息  -->
+		<!-- void updateUser(User user) -->
+		<!-- update完成update语句的编写 -->
+		<update id="updateUser" parameterType="cn.tedu.bean.User">
+		update t_user set username=#{username},password=#{password},phone=#{phone},email=#{email}
+		where id=#{id}
+		</update>
+		<!--删除用户（根据id）  -->
+		<!--void deleteUser(Integer id)  -->
+		<!--1.delete节点表示定义删除语句  
+				2.如果参数列表为8种基本数据类型或者string类型，那么parameterType可以省略
+				3.如果不省略，那么可以写成：
+				parameterType="java.lang.Integer"		
+		-->
+		
+		<delete id="deleteUser">
+		delete from t_user where id=#{id}
+		</delete>
+		<!-- 根据id查询用户信息 -->
+		<!--User selectUser(Integer id)  -->
+		<!--1.select表示定义select语句
+				2.resuleType表示当前记录返回的封装类类型 
+				3.默认情况下封装对象规则：按表的字段名封装，如果类的属性名和字段名不同，可以给字段名起别名 -->
+		<select id="selectUser" resultType="cn.tedu.bean.User">
+		select id, username name,password,phone,email 
+		from t_user where id=#{id}
+		</select>
+		<!--查询所有用户  -->
+		<!--List<User> getAll()  -->
+		<select id="getAll" resultType="cn.tedu.bean.User">
+		select id,username,password,phone,email from t_user
+		</select>
+	</mapper>
+	
+	
+	
+	
+	
+	
+	
+	
+	

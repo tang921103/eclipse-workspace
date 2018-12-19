@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="demo" extends="json-default" namespace="/">
+<interceptors>
+<interceptor name="inte"  class="interceptor.UserInterceptor"></interceptor>
+</interceptors>
+<action name="helloaction" class="action.HelloAction" method="hello">
+<result name="ok">/ok.jsp</result>
+</action>
+<action name="loginaction" class="action.LoginAction" method="login">
+ <interceptor-ref name="inte"></interceptor-ref> 
+<result name="ok">/ok.jsp</result>
+</action>
+<action name="registeraction" class="action.RegisterAction" method="register">
+<result name="ok">/ok.jsp</result>
+</action>
+<action name="*scopeobject" class="action.ScopeAction" method="{1}">
+<result name="ok">/ok.jsp</result>
+</action>
+</package>
+</struts>

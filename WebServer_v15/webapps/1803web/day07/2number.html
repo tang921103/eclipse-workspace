@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var x = 5/2;
+	/*
+	页面弹出 alert（）
+	控制台输出console.log()
+	*/
+	//页面弹出框
+	//alert(x);
+	//浏览器控制台输出
+	/* console.log(x);
+	var y = 6/2;
+	alert(y);
+	for(var i = 0;i<10;i++){
+		 alert(i);
+	} */
+	/* 函数声明*/
+	//有参无返回
+	function run(name,age){
+		alert(name+":"+age);
+	}
+	/*函数调用*/
+	run("小名",18);
+	//有参有返回
+	function run2(n1,n2){
+		return n1*n2;
+	}
+	var result = run2(2,5);
+	alert(result);
+	//无参无返回
+	function run3(){
+		alert("run3");
+	}
+	run3();
+	//无参有返回
+	function run4(){
+		return "abc";
+	}
+	var s = run4();
+		console.log(s);
+		//第二种声明函数的方式
+		var run5 = function(name,age){
+			alert(name+":"+age);			
+		}
+		run5("张三",45);
+		/*通过按钮调用函数*/
+		function btnrun(){
+			alert("按钮点击的函数");
+		}
+</script>
+</head>
+<body>
+	<input type="button" onclick="btnrun()" value="我是按钮">
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function runCode(){
+	/*得到用户输入的内容*/
+	var myinput = document.getElementById("myinput");
+	//把用户输入的内容以代码的形式执行
+	eval(myinput.value);
+	//使用eval可以实现在不改动页面源码的情况下，添加或修改页面的逻辑。
+}
+function cal(){
+	var numberinput = document.getElementById("numberinput");
+	var str = numberinput.value;
+	numberinput.value = eval(str);
+}
+</script>
+</head>
+<body>
+	<a href="http://doc.tedu.cn" onclick="return confirm('确认离开吗？')">点击跳转</a>
+	<input type="text" id="myinput">
+	<input type="button" value="执行代码" onclick="runCode()">
+	<p>计算器</p>
+	<input type="text" id="numberinput">
+	<input type="button" value="计算" onclick="cal()">
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width:200px;
+		height:200px;
+	}
+	#d1{
+		background-color:red;
+		/* 隐藏方式1 ,而且会脱离文档流*/
+		/*display:none;*/
+		/*  隐藏方式2 ，不脱离文档流*/
+		visibility:hidden;
+	}
+	#d2{
+		background-color:blue;
+	}
+</style>
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+</body>
+</html>

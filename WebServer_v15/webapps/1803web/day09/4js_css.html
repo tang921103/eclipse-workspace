@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var dis = 0;
+	onfocus = function(){
+		dis = 0;
+		var d = document.getElementById("mydiv");
+		d.style.left = dis+"px";
+	}
+	onclick = function(){
+		var d = document.getElementById("mydiv");
+		dis += 50;
+		if(dis>=300){
+			dis = 0;
+		}
+		//距离左侧窗口50px
+		d.style.left = dis+"px";
+	}
+	
+</script>
+<style type="text/css">
+	#mydiv{
+		width:100px;
+		height:100px;
+		position:absolute;
+		border:1px solid red;
+	}
+</style>
+</head>
+<body>
+	<div id="mydiv">
+		 
+	</div>
+</body>
+</html>
